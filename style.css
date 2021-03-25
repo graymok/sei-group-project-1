@@ -40,13 +40,20 @@ body {
     cursor: pointer;
 }
 
-.wine-btn:hover {
+.wine-btns:hover {
     background-color: #cfa286;
 }
 
 .hero {
     width: 100%;
     padding-top: 20px;
+    border-bottom: #4b4b4c 1px solid;
+
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Lobster', sans-serif;
 }
 
 header {
@@ -71,11 +78,11 @@ header {
 
 .main-content {
     position: relative;
-    left: 50%;
+    left: 30%;
     border: 1px solid #fffafa;
     top: 10%;
     width: 700px;
-    height: 500px;
+    height: 550px;
 }
 
 .splash {
@@ -83,3 +90,4 @@ header {
     background-size: cover;
     height: 100%;
 }
+
