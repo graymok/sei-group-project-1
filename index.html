@@ -6,31 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group Project</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lobster">
+
 </head>
 <body>
-<<<<<<< HEAD
-    <form action="http://myapi-profstream.herokuapp.com/api/9ba2de/wines" method="GET">
-    <p>please enter the wine to GET</p>
-    <input type="text" name="wine to GET">
-    </form>
-    <button>button</button>
-
-    <form action="http://myapi-profstream.herokuapp.com/api/9ba2de/wines" method="POST">
-    <p>please enter the wine to POST</p>
-    <input type="text" name="wine to POST">
-    </form>
-
-    <button>button</button>
-=======
+  <div class="container">
+      <nav class="wine-links">
+          <button class="wine-btns">All Wines</button>
+          </nav>
+          <nav class="wine-links">
+          <button class="wine-btns">Create a New Wine</button>
+          </nav>
+  </div>
+  <div class="hero">
+      <header>Index of All Wine</header>
+  </div>
+  <aside class="catalog-container">
+    <div class="wine-catalog">
+        <h2>Wine List:</h2>
+        <button id="btn-getlist">GET Wine list</button>
+        <div class="testingarea">
+    
+        </div>
+        </div>
+  </aside>
+  <div class="main-content">
+      <div class="splash">
+          
+      </div>
+  </div>
+    <!-- <div class="wine-catalog">
     <h2>Wine List:</h2>
     <button id="btn-getlist">GET Wine list</button>
     <div class="testingarea">
 
     </div>
-
-
->>>>>>> 47b131aa06786d0a87e56f6cfc8104afe30524c3
-
+    </div> -->
     <script src="./app.js"></script>
 </body>
 </html>

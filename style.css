@@ -1,6 +1,85 @@
-.wine-name {
+*{
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    background-color: #2c041c;
+    color: #ffebcd;
+    display: flexbox;
+}
+
+.container {
+    border: 4px dotted #bd9b16;
+    background-color: #e89b93;
+    border-radius: 5px;
     display: flex;
-    flex-direction: column;
-    width: 300px;
-    padding: 10px 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+    margin-top: 30px;
+}
+
+.wine-links {
+    margin: 150px;
+}
+
+.wine-btns {
+    height: 100px;
+    width: 200px;
+    border: 1px solid #4b4b4c;
+    border-radius: 12%;
+    font-size: 20px;
+    font-family: 'Lobster', sans-serif;
+    background-color: #a6826c;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: #4b4b4c;
+    cursor: pointer;
+}
+
+.wine-btn:hover {
+    background-color: #cfa286;
+}
+
+.hero {
+    width: 100%;
+    padding-top: 20px;
+}
+
+header {
+    font-size: 35px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Lobster', sans-serif;
+}
+
+
+.catalog-container {
+    width: 350px;
+    height: 500px;
+    position: absolute;
+}
+
+.wine-catalog {
+    position: relative;
+    left: 20%;
+    top: 10%;
+}
+
+.main-content {
+    position: relative;
+    left: 50%;
+    border: 1px solid #fffafa;
+    top: 10%;
+    width: 700px;
+    height: 500px;
+}
+
+.splash {
+    background-image: url('https://cmsauvignon.com/wp-content/uploads/2016/10/DSC0638-Shea-1713974122-O.jpg');
+    background-size: cover;
+    height: 100%;
 }
