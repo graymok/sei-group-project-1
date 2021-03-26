@@ -8,28 +8,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<<<<<<< HEAD
-    <form action="http://myapi-profstream.herokuapp.com/api/9ba2de/wines" method="GET">
-    <p>please enter the wine to GET</p>
-    <input type="text" name="wine to GET">
-    </form>
-    <button>button</button>
 
-    <form action="http://myapi-profstream.herokuapp.com/api/9ba2de/wines" method="POST">
-    <p>please enter the wine to POST</p>
-    <input type="text" name="wine to POST">
-    </form>
-
-    <button>button</button>
-=======
     <h2>Wine List:</h2>
     <button id="btn-getlist">GET Wine list</button>
-    <div class="testingarea">
+    <button id="btn-create">Create New Wine</button>
+    <div class="containerTest">
+        <div class="testingarea">
 
+        </div>
+        <div class="testingPopupZone">
+            <div class="new hidden" id="testingInput">
+                <label for="new-name">Name: <input type="text" id="new-name"></label>
+                <label for="new-year">Year: <input type="text" id="new-year"></label>
+                
+                <label for="new-price">Price: <input type="text" id="new-price"></label>
+                
+                <label for="new-grapes">Grapes: <input type="text" id="new-grapes"></label>
+                
+                <label for="new-description">Description: <input type="text" id="new-description"></label>
+                
+                <label for="new-country">Country: <input type="text" id="new-country"></label>
+                
+                <label for="new-region">Region: <input type="text" id="new-region"></label>
+                
+                <label for="new-picture">Picture URL: <input type="text" id="new-picture"></label>
+                <button id="btn-post">Submit to API</button>
+
+            </div>
+    
+        </div>
     </div>
+    
 
-
->>>>>>> 47b131aa06786d0a87e56f6cfc8104afe30524c3
 
     <script src="./app.js"></script>
 </body>
