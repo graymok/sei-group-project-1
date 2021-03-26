@@ -77,7 +77,7 @@ header {
     left: 20%;
     top: 10%;
     height: 400px;
-    width: 300px;
+    width: fit-content;
 }
 
 .main-content {
@@ -132,7 +132,7 @@ header {
     .wine-links {
         margin: 10px;
     }
-
+}
 
 
 .containerTest {
@@ -145,11 +145,43 @@ header {
     flex-direction: column;
     width: 300px;
     padding: 10px 10px;
+    font-size: 18px;
+    text-align: left;
+    border-radius: 5px;
 }
 
 .wine-name {
-    color: white;
+    color: #ffffff;
     font-family: "Lobster"
+}
+
+.wine-price, .wine-year, .wine-grapes, .wine-country,
+.wine-region, .wine-description {
+    padding-top: 5px;
+    z-index: 10;
+}
+
+.wine-btn {
+    margin: 10px 10px;
+    background-color: #474544;
+    cursor: pointer;
+    color: #ffffff;
+    height: fit-content;
+    width: fit-content;
+    padding: 15px 15px;
+    text-transform: uppercase;
+    line-height: normal;
+    border-radius: 10px;
+}
+
+.wine-btn:hover {
+    background: #6d6b70;
+    color: #f2f3eb;
+}
+
+.wine-picture {
+    border-radius: 50px;
+    border: 5px solid #e89b93;
 }
 
 .testingarea {
