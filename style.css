@@ -132,7 +132,7 @@ header {
     .wine-links {
         margin: 10px;
     }
-
+}
 
 .containerTest {
     display: flex;
@@ -148,7 +148,7 @@ header {
 
 .wine-name {
     color: white;
-    font-family: "Lobster"
+    font-family: "Lobster";
 }
 
 .testingarea {
