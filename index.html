@@ -1,36 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group Project</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyWineList app</title>
+  <script src="https://kit.fontawesome.com/39263ca8c3.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+     margin: 5px;
+    }
+  </style>
 </head>
+
 <body>
-<<<<<<< HEAD
-    <form action="http://myapi-profstream.herokuapp.com/api/9ba2de/wines" method="GET">
-    <p>please enter the wine to GET</p>
-    <input type="text" name="wine to GET">
-    </form>
-    <button>button</button>
+  <!-- classes have bootstrap styling --> 
+<div class="container mt-4">
+  <h1 class="display-4 text-center">
+    <i class="fas fa-wine-glass-alt"></i>
+    <span class="text-primary">theTipsyCohort</span></h1>
+   
+   <!-- to make the form -->
+<form id="wine-form">
+      
+    <div class="form-group">
+        <label for="name">Name of wine</label>
+          <input type="text" id="name" class="form-control">
+        </div>
+     
+      <div class="form-group">
+        <label for="year">Year</label>
+          <input type="text" id="year" class="form-control">
+      </div>
+     
+      <div class="form-group">
+        <label for="grapes">Grapes</label>
+          <input type="text" id="grapes" class="form-control">
+      </div>
 
-    <form action="http://myapi-profstream.herokuapp.com/api/9ba2de/wines" method="POST">
-    <p>please enter the wine to POST</p>
-    <input type="text" name="wine to POST">
-    </form>
+      <div class="form-group">
+        <label for="country">Country</label>
+          <input type="text" id="country" class="form-control">
+      </div>
 
-    <button>button</button>
-=======
-    <h2>Wine List:</h2>
-    <button id="btn-getlist">GET Wine list</button>
-    <div class="testingarea">
+      <div class="form-group">
+        <label for="region">Region</label>
+          <input type="text" id="region" class="form-control">
+      </div>
 
-    </div>
+      <div class="form-group">
+        <label for="description">Description</label>
+          <input type="text" id="description" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="picture">Picture</label>
+          <input type="text" id="picture" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price</label>
+          <input type="text" id="price" class="form-control">
+      </div>
+            
+      <input type="submit" value="Create a New Wine" class="submit-button">
 
 
->>>>>>> 47b131aa06786d0a87e56f6cfc8104afe30524c3
+        </div>
+  </form>
 
-    <script src="./app.js"></script>
+    <table class="table table-striped mt-5">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Year</th>
+          <th>Grapes</th>
+          <th>Country</th>
+          <th>Region</th>
+          <th>Description</th>
+          <th>Picture</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <!-- this is where we insert all our wines using JS -->
+      <tbody id="wine-list"></tbody>
+    </table>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
