@@ -30,31 +30,9 @@ document.querySelector('#wine-form').addEventListener('submit', async (e) => {
     })
   })
 })
-//   //Validate
-//   if(name === '' || year === '' || grape === '' || country === '' || region === '' || description === '' || picture === '' || price === ''){
-//     alert('please fill in all feilds')
-//   } else {
+
+s
   
-//     //instantiate wine
-//   const wine = new Wine(name, year, grape, country, region, description, picture, price)
-
-//   //add wine to API
-//   UI.addWineToList(wine)
-
-//   //clear fields method
-//   UI.clearFeilds()
-//   }
-// })
-
-  
-
-
-
-
-
-
-
-
 
 // tim's wine API for testing: https://myapi-profstream.herokuapp.com/api/d2537b/wines
 
