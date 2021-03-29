@@ -190,16 +190,6 @@ header {
     border: 5px solid #e89b93;
 }
 
-.testingarea {
-    border: 1px solid blue;
-    height: 400px;
-}
-
-.testingPopupZone {
-    border: 1px solid red;
-    height: 400px;
-    width: 600px;
-}
 
 .new {
     display: flex;
