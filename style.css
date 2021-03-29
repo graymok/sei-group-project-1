@@ -145,11 +145,6 @@ header {
     }
 }
 
-.containerTest {
-    display: flex;
-    flex-direction: row;
-}
-
 .wine-name {
     display: flex;
     flex-direction: column;
