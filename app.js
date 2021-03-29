@@ -2,7 +2,6 @@ console.log("Let's do this")
 
 const buttonGetWineList = document.getElementById('all-wines-btn')
 const buttonCreateNewWine = document.getElementById('new-wine-input-btn')
-//const buttonSubmitNewWine = document.getElementById('btn-post')
 const wineCatalog = document.querySelector('.wine-catalog')
 const mainContent = document.querySelector('.main-content')
 const siteHeader = document.getElementById('site-header')
@@ -11,22 +10,23 @@ let result = null
 let deleteButton = null
 let nameLinks = null
 let nameDetails = null
-let newWineDetails = null
-
 
 
 const getWineCatalog = async () => {
     try {
         let response = await fetch('https://myapi-profstream.herokuapp.com/api/3f4da7/wines/')
         let result = await response.json()
-        //console.log(result)
-        //console.log(result[0].id)
         loadWineCatalogDOM(result)
-
+        wineCatalogArr.push(result)
+        return wineCatalogArr
+        
     } catch (error) {
 
     }
+   
+    
 }
+
 
 const loadWineCatalogDOM = (result) => {
     let wineIndex = document.createElement('div')
@@ -105,14 +105,7 @@ const loadWineCatalogDOM = (result) => {
     }
 
     nameLinks = document.querySelectorAll('.wine-index-listing')
-    //console.log("nameLinks", nameLinks)
-    //console.log("nameLinks[0]", nameLinks[0])
-
     nameDetails = document.querySelectorAll('.wine-name')
-    //console.log("nameDetails", nameDetails)
-    //console.log("nameDetails[0]", nameDetails[0])
-
-    
 
     for (let k = 0; k < nameLinks.length; k++) {
         nameLinks[k].addEventListener('click', () => {
@@ -123,13 +116,9 @@ const loadWineCatalogDOM = (result) => {
                 }
                 
             }
-            //if (document.getElementById("testingInput").classList.contains("hidden") !== true) {
-            //    document.getElementById("testingInput").classList.add("hidden")
-            //}
             if (document.querySelector('.wineViewing').classList.contains("hidden") === true) {
                 document.querySelector('.wineViewing').classList.remove("hidden")
             }
-
 
             if (document.getElementById("splash-home").classList.contains("hidden") !== true) {
                 document.getElementById("splash-home").classList.add("hidden")
@@ -139,8 +128,6 @@ const loadWineCatalogDOM = (result) => {
                 document.getElementById("parent-form").classList.add("hidden")
             }
             
-            //console.log(`You clicked ${nameLinks[k].id}`)
-            //wineClearDetails()
             let wineIDcode = nameLinks[k].id.slice(6, 10)
             wineLinksNav(`wine-${wineIDcode}`)
         })
@@ -148,23 +135,15 @@ const loadWineCatalogDOM = (result) => {
 
 }
 
-
-
-
-
 const clearWineCatalogDOM = () => {
     while(wineCatalog.firstChild) {
         wineCatalog.removeChild(wineCatalog.firstChild)
     }
 }
 
-
-
-
-
 buttonGetWineList.addEventListener('click', () => {
     siteHeader.innerText = "Index of All Wines"
-    
+    clearWineCatalogDOM()
     if (document.querySelector('.wineViewing').classList.contains("hidden") !== true) {
         document.querySelector('.wineViewing').classList.add("hidden")
     }
@@ -179,25 +158,6 @@ buttonGetWineList.addEventListener('click', () => {
 
 })
 
-/* buttonSubmitNewWine.addEventListener('click', () => {
-    createNewWinePost()
-    
-    clearWineCatalogDOM()
-    getWineCatalog()
-}) */
-
-/* buttonCreateNewWine.addEventListener('click', () => {
-    for (let m = 0; m < nameDetails.length; m++) {
-        if(nameDetails[m].classList.contains("hidden") !== true) {
-            nameDetails[m].classList.add("hidden")
-        }
-    }
-    document.getElementById("testingInput").classList.remove("hidden")
-
-    
-
-}) */
-
 document.querySelector('#wine-form').addEventListener('submit', async (e) => {
     e.preventDefault()
     //get form values
@@ -209,8 +169,6 @@ document.querySelector('#wine-form').addEventListener('submit', async (e) => {
     let description = document.querySelector('#description').value
     let picture = document.querySelector('#picture').value
     let price = document.querySelector('#price').value
-  
-    // const body = JSON.stringify({name, year, grape, country, region, description, picture, price})
   
     const res = await fetch('http://myapi-profstream.herokuapp.com/api/3f4da7/wines/', {
       method: 'POST',
@@ -228,75 +186,14 @@ document.querySelector('#wine-form').addEventListener('submit', async (e) => {
         "price": `${price}`
       })
     })
-    
-    console.log(name)
 
     siteHeader.innerText = `${name}`
-    getWineCatalog()
-    clearWineCatalogDOM()
+    let newWineName = siteHeader.innerText
     if (document.getElementById("parent-form").classList.contains("hidden") !== true) {
         document.getElementById("parent-form").classList.add("hidden")
     }
-
-    document.querySelector('.wineViewing').classList.remove("hidden")
-
-    let newWineName = document.createElement('div')
-    newWineName.innerText = `Name: ${name}`
-    newWineName.classList.add("wine-name")
-    wineViewing.appendChild(newWineName)
-        
-    let newWinePrice = document.createElement('div')
-    newWinePrice.innerText = `Price: $${price}`
-    newWinePrice.classList.add("wine-price")
-    wineName.appendChild(newWinePrice)
-
-    let newWineYear = document.createElement('div')
-    newWineYear.innerText = `Year: ${year}`
-    newWineYear.classList.add("wine-year")
-    wineName.appendChild(newWineYear)
-
-    let newWineGrapes = document.createElement('div')
-    newWineGrapes.innerText = `Grapes: ${grapes}`
-    newWineGrapes.classList.add("wine-grapes")
-    wineName.appendChild(newWineGrapes)
-
-    let newWineCountry = document.createElement('div')
-    newWineCountry.innerText = `Country: ${country}`
-    newWineCountry.classList.add("wine-country")
-    wineName.appendChild(newWineCountry)
-
-    let newWineRegion = document.createElement('div')
-    newWineRegion.innerText = `Region: ${region}`
-    newWineRegion.classList.add("wine-region")
-    wineName.appendChild(newWineRegion)
-
-    let newWineDescription = document.createElement('div')
-    newWineDescription.innerText = `Description: ${description}`
-    newWineDescription.classList.add("wine-description")
-    wineName.appendChild(newWineDescription)
-
-    let newWinePicture = document.createElement('img')
-    newWinePicture.src = `${picture}`
-    newWinePicture.classList.add("wine-picture")
-    wineName.appendChild(newWinePicture)
 
 })
-
-
-
-
-    /* if (document.querySelector('.wineViewing').classList.contains("hidden") !== true) {
-        document.querySelector('.wineViewing').classList.add("hidden")
-    }
-    if (document.getElementById("parent-form").classList.contains("hidden") !== true) {
-        document.getElementById("parent-form").classList.add("hidden")
-    }
-    getWineCatalog()
-    clearWineCatalogDOM()
-    if (document.getElementById("splash-home").classList.contains("hidden") === true) {
-        document.getElementById("splash-home").classList.remove("hidden")
-    } */
-
 
 buttonCreateNewWine.addEventListener('click', () => {
     siteHeader.innerText = "New Wine Details"
@@ -314,49 +211,15 @@ buttonCreateNewWine.addEventListener('click', () => {
     }
 })
 
-
-/* const createNewWinePost = async () => {
-    let newName = document.getElementById("new-name").value
-    let newYear = document.getElementById("new-year").value
-    let newPrice = document.getElementById("new-price").value
-    let newGrapes = document.getElementById("new-grapes").value
-    let newDescription = document.getElementById("new-description").value
-    let newCountry = document.getElementById("new-country").value
-    let newRegion = document.getElementById("new-region").value
-    let newPicture = document.getElementById("new-picture").value
-    
-    let responsePOST = await fetch('http://myapi-profstream.herokuapp.com/api/d2537b/wines', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-        "name": `${newName}`,
-        "year": `${newYear}`,
-        "grapes": `${newGrapes}`,
-        "country": `${newCountry}`,
-        "region": `${newRegion}`,
-        "description": `${newDescription}`,
-        "picture": `${newPicture}`,
-        "price": `${newPrice}`
-
-        })
-    }) 
-} */
-
-
 const wineLinksNav = (wineID) => {
     document.getElementById(`${wineID}`).classList.remove("hidden")
 }
 
-
 let deleteWine = async (wineID) => {
-    //alert("You deleted the wine!")
     console.log(`You deleted wine ID: ${wineID}`)
     let responseDelete = await fetch(`https://myapi-profstream.herokuapp.com/api/3f4da7/wines/${wineID}`, {
         method: 'DELETE'
     })
 }    
-
 
 document.addEventListener('DOMContentLoaded', getWineCatalog);
